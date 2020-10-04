@@ -14,4 +14,4 @@ Exemplo de uso:
 
 ####python BMOScapyPoli.py -v 192.168.1.18 -r 192.168.1.1
 
-(Em que -v é o endereço iP da vitima, e o -r o iP do roteador)
+(Em que -v é o endereco iP da vitima, e o -r o iP do roteador)

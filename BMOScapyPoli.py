@@ -8,8 +8,8 @@ import time
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-v", "--victimIP", help="Escolha o endereço IP da vítima. Exemplo: -v 192.168.0.5")
-    parser.add_argument("-r", "--routerIP", help="Escolha o endereço IP do roteador. Exemplo: -r 192.168.0.1")
+    parser.add_argument("-v", "--victimIP", help="Escolha o endereco IP da vitima. Exemplo: -v 192.168.0.5")
+    parser.add_argument("-r", "--routerIP", help="Escolha o endereco IP do roteador. Exemplo: -r 192.168.0.1")
     return parser.parse_args()
 def originalMAC(ip):
     ans,unans = srp(ARP(pdst=ip), timeout=5, retry=3)
@@ -30,9 +30,9 @@ def main(args):
     routerMAC = originalMAC(args.routerIP)
     victimMAC = originalMAC(args.victimIP)
     if routerMAC == None:
-        sys.exit("Não foi possível encontrar o endereço MAC do roteador. Fechando....")
+        sys.exit("Nao foi possivel encontrar o endereco MAC do roteador. Fechando....")
     if victimMAC == None:
-        sys.exit("Não foi possível encontrar o endereço MAC da vítima. Fechando....")
+        sys.exit("Nao foi possivel encontrar o endereco MAC da vitima. Fechando....")
     with open('/proc/sys/net/ipv4/ip_forward', 'w') as ipf:
         ipf.write('1\n')
     def signal_handler(signal, frame):
